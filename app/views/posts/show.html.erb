@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content%></p>
+<hr>
+<p>Destination <%= link_to @post.destination.name, @post.destination %><p>
+<p>Blogger <%= link_to @post.blogger.name, @post.blogger %><p>
+<hr>
+
+<p>Likes: <%= @post.likes %> <%= link_to "Like Post", posts_like_path(@post), :class => "btn btn-primary" %><p>

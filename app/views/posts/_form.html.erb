@@ -1,0 +1,23 @@
+<% if flash[:errors] %>
+    <%flash[:errors].map do |error|%>
+        <li><%=error%> </li>
+    <%end%>
+<%end%>
+
+<%=form_for @post do |f|%><div>
+<%= f.label :title%>
+<%= f.text_field :title%> <div>
+<%= f.label :content %>
+<%= f.text_area :content %> <div>
+<select name="post[blogger_id]">
+    <% Blogger.all.each do |blogger| %>
+        <option value="<%= blogger.id %>"><%= blogger.name %></option>
+    <% end %>
+</select>
+<select name="post[destination_id]">
+    <% Destination.all.each do |dest| %>
+        <option value="<%= dest.id %>"><%= dest.name %></option>
+    <% end %>
+</select>
+<%= f.submit :submit%>
+<%end%>

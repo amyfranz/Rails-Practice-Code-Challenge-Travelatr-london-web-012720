@@ -1,0 +1,10 @@
+<h1><%= @destination.name%> </h1>
+<p> Country: <%= @destination.country%> </p>
+<hr>
+<h3>Most Recent Posts</h3>
+<% @destination.posts.last(5).map do |post| %>
+<li> <%= link_to post.title, post %> </li>
+<%end%>
+<hr>
+<p>Top Post: <%= link_to @destination.best_post.title, @destination.best_post%></p>
+<p> Average Writer Age: <%= @destination.average_age%></p>
